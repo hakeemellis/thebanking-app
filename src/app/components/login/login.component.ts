@@ -17,9 +17,23 @@ export class LoginComponent {
 
 
 
-  /*signIn(email: string, password: string): void {
-    // Call AuthService's signInWithEmail method
-    this.authService.signInWithEmail(email, password);
-  }*/
+  signIn(event: Event, email: string, password: string) {
+    event.preventDefault();  // Prevent default form submission
+
+    this.authService.login(email, password)
+      .then(() => {
+        this.router.navigate(['/dashboard']);
+      })
+      .catch(error => {
+        console.error('Error signing in:', error.message);
+        alert('Sign in failed. Please try again.');
+      })
+      .finally(() => {
+        // Clear sensitive data from memory
+        email = '';
+        password = '';
+      });
+
+  }
 
 }

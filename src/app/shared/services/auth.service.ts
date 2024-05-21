@@ -1,7 +1,7 @@
 // auth.service.ts
 
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signOut } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, UserCredential, onAuthStateChanged } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -11,29 +11,45 @@ export class AuthService {
 
   UserData: any;
 
-  constructor(public auth: Auth, public router: Router) {}
+  constructor(public auth: Auth, public router: Router) {
 
-  async signUpWithEmail(email: string, password: string): Promise<void> {
-    try {
-      console.log('good 1')
-      const userCredential = await createUserWithEmailAndPassword(this.auth, email, password);
-      console.log('good 2')
-      this.UserData = userCredential.user;
-      console.log('good 3')
-      sessionStorage.setItem('user', JSON.stringify(this.UserData));
-      console.log('good 4')
-      console.log('User signed up:', this.UserData);
-      this.router.navigate(['/dashboard']); // Navigate to the desired route after sign-up
-    } catch (error: any) {
-      console.error('Error signing up:', error.message);
-      alert(`Sign up failed. ${error.message}`);
-    }
+          //To check if user is logged in or not
+          onAuthStateChanged(this.auth, (user: any) => {
+           if (user) {
+            this.UserData = user;
+            sessionStorage.setItem('user', JSON.stringify(this.UserData));
+            JSON.parse(sessionStorage.getItem('user')!);
+            console.log('signed in')
+            console.error('Auth Local Storage Fix Top');
+          } else {
+            sessionStorage.setItem('user', 'null');
+            JSON.parse(sessionStorage.getItem('user')!);
+            console.log('Not Signed');
+            console.error('Auth Local Storage Fix');
+          }
+
+  });
+}
+
+  signUpWithEmail(email: string, password: string): Promise<UserCredential> {
+    return createUserWithEmailAndPassword(
+      this.auth,
+      email.trim(),
+      password.trim()
+    );
   }
+
+  login(email: string, password: string): Promise<UserCredential> {
+    return signInWithEmailAndPassword(
+        this.auth,
+        email.trim(),
+        password.trim()
+      );
+    }
 
   async signOut(): Promise<void> {
     try {
       await signOut(this.auth);
-      sessionStorage.removeItem('user');
       this.router.navigate(['/login']);
       console.log('User signed out');
     } catch (error: any) {
@@ -41,4 +57,3 @@ export class AuthService {
     }
   }
 }
-

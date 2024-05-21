@@ -6,7 +6,7 @@
 
     <h2 class="pb-5 text-3xl font-semibold text-rose-700">Welcome!</h2>
 
-    <form class="form-lg text-center" > <!-- (submit)="signIn(email.value, password.value)" -->
+    <form class="form-lg text-center" (submit)="signIn($event, email.value, password.value)" > <!-- (submit)="signIn(email.value, password.value)" -->
 
       <div class="m-0 mx-auto my-auto">
 
