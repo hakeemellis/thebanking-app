@@ -8,7 +8,11 @@ export const authGuard: CanActivateFn = (route, state) => {
     const auth = inject(Auth);
     const router = inject(Router);
 
-    const user = auth.currentUser;
+    // Retrieve the user from sessionStorage
+    const userString = sessionStorage.getItem('user');
+    const user = userString ? JSON.parse(userString) : null;
+
+    console.log('Current User:', user); // Debug, to show me who's logged in
 
     // Modified
     if (!user) {
