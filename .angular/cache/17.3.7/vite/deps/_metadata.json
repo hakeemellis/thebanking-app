@@ -1,34 +1,70 @@
 {
-  "hash": "3194c4e2",
-  "configHash": "8be4a76b",
-  "lockfileHash": "8a05617c",
-  "browserHash": "f7734318",
+  "hash": "27ce826d",
+  "configHash": "e9bb54b4",
+  "lockfileHash": "4c1bf132",
+  "browserHash": "b653648d",
   "optimized": {
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "2a2f4abc",
+      "fileHash": "9ca0201e",
+      "needsInterop": false
+    },
+    "@angular/fire/app": {
+      "src": "../../../../../node_modules/@angular/fire/fesm2022/angular-fire-app.mjs",
+      "file": "@angular_fire_app.js",
+      "fileHash": "1f2d6839",
+      "needsInterop": false
+    },
+    "@angular/fire/auth": {
+      "src": "../../../../../node_modules/@angular/fire/fesm2022/angular-fire-auth.mjs",
+      "file": "@angular_fire_auth.js",
+      "fileHash": "84480dd9",
+      "needsInterop": false
+    },
+    "@angular/fire/database": {
+      "src": "../../../../../node_modules/@angular/fire/fesm2022/angular-fire-database.mjs",
+      "file": "@angular_fire_database.js",
+      "fileHash": "9fae18f5",
+      "needsInterop": false
+    },
+    "@angular/fire/firestore": {
+      "src": "../../../../../node_modules/@angular/fire/fesm2022/angular-fire-firestore.mjs",
+      "file": "@angular_fire_firestore.js",
+      "fileHash": "389e5b5b",
+      "needsInterop": false
+    },
+    "@angular/fire/storage": {
+      "src": "../../../../../node_modules/@angular/fire/fesm2022/angular-fire-storage.mjs",
+      "file": "@angular_fire_storage.js",
+      "fileHash": "4f212b34",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "9ca0fdab",
+      "fileHash": "9f298f33",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "bfc6d317",
+      "fileHash": "6a2422ba",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-P5WB54LL": {
-      "file": "chunk-P5WB54LL.js"
+    "chunk-PCJTNDO7": {
+      "file": "chunk-PCJTNDO7.js"
     },
-    "chunk-BNOYPYPL": {
-      "file": "chunk-BNOYPYPL.js"
+    "chunk-4EH5QVCE": {
+      "file": "chunk-4EH5QVCE.js"
+    },
+    "chunk-HFWQH6BE": {
+      "file": "chunk-HFWQH6BE.js"
+    },
+    "chunk-4Y7IRDWW": {
+      "file": "chunk-4Y7IRDWW.js"
     }
   }
 }
