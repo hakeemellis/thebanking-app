@@ -5,11 +5,20 @@ import {
   Injector,
   NgModule,
   NgZone,
-  Observable,
   Optional,
   PLATFORM_ID,
   VERSION,
   Version,
+  makeEnvironmentProviders,
+  queueScheduler,
+  setClassMetadata,
+  ɵɵdefineInjectable,
+  ɵɵdefineInjector,
+  ɵɵdefineNgModule,
+  ɵɵinject
+} from "./chunk-GUDGPV4I.js";
+import {
+  Observable,
   __async,
   __spreadProps,
   __spreadValues,
@@ -17,18 +26,11 @@ import {
   concatMap,
   distinct,
   from,
-  makeEnvironmentProviders,
   observeOn,
-  queueScheduler,
-  setClassMetadata,
   subscribeOn,
   tap,
-  timer,
-  ɵɵdefineInjectable,
-  ɵɵdefineInjector,
-  ɵɵdefineNgModule,
-  ɵɵinject
-} from "./chunk-4Y7IRDWW.js";
+  timer
+} from "./chunk-VROQHDY4.js";
 
 // node_modules/@firebase/util/dist/index.esm2017.js
 var CONSTANTS = {
@@ -3163,4 +3165,4 @@ firebase/app/dist/esm/index.esm.js:
    * limitations under the License.
    *)
 */
-//# sourceMappingURL=chunk-4EH5QVCE.js.map
+//# sourceMappingURL=chunk-I3XYOW5X.js.map

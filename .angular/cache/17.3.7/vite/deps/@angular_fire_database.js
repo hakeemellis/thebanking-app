@@ -1,6 +1,6 @@
 import {
   AuthInstances
-} from "./chunk-PCJTNDO7.js";
+} from "./chunk-Z3WX3UFM.js";
 import {
   Component,
   ComponentContainer,
@@ -45,33 +45,35 @@ import {
   ɵgetAllInstancesOf,
   ɵgetDefaultInstanceOf,
   ɵzoneWrap
-} from "./chunk-4EH5QVCE.js";
+} from "./chunk-I3XYOW5X.js";
 import {
   InjectionToken,
   Injector,
   NgModule,
   NgZone,
-  Observable,
   Optional,
+  makeEnvironmentProviders,
+  merge,
+  setClassMetadata,
+  ɵɵdefineInjector,
+  ɵɵdefineNgModule
+} from "./chunk-GUDGPV4I.js";
+import {
+  Observable,
   __async,
   concatMap,
   delay,
   distinct,
   distinctUntilChanged,
   from,
-  makeEnvironmentProviders,
   map,
-  merge,
   of,
   scan,
-  setClassMetadata,
   skipWhile,
   switchMap,
   timer,
-  withLatestFrom,
-  ɵɵdefineInjector,
-  ɵɵdefineNgModule
-} from "./chunk-4Y7IRDWW.js";
+  withLatestFrom
+} from "./chunk-VROQHDY4.js";
 
 // node_modules/@firebase/database/dist/index.esm2017.js
 var name = "@firebase/database";

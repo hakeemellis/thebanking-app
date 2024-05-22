@@ -21,4 +21,5 @@ export const routes: Routes = [
     { path: 'transactionhistory', component: TransactionHistoryComponent }, // Loads Transaction History Components
     { path: 'signup', component: SignupComponent }, // Loads Transaction History Components
     { path: 'cannotaccess', component: CannotAccessComponent }, // Loads Cannot Accesss Components
+    { path: '**', redirectTo: 'cannotaccess' } // Wildcard route to catch all/random routes
 ];
