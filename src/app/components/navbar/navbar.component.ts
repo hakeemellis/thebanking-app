@@ -12,10 +12,15 @@ import { AuthService } from '../../shared/services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
+  isLoggedIn: boolean = false;
+
   constructor(public AppComponent: AppComponent, public authService: AuthService) {}
 
+  //Checks if user is still logged in
   ngOnInit(): void {
-
+    this.authService.authState.subscribe((user) => {
+      this.isLoggedIn = !!user;
+    });
   }
 
   toggleDarkMode(event: Event): void {

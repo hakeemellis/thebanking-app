@@ -10,13 +10,15 @@ import {
   VERSION,
   Version,
   makeEnvironmentProviders,
-  queueScheduler,
   setClassMetadata,
   ɵɵdefineInjectable,
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-GUDGPV4I.js";
+} from "./chunk-CZDXZFY2.js";
+import {
+  queueScheduler
+} from "./chunk-3J3ZFXGS.js";
 import {
   Observable,
   __async,
@@ -30,7 +32,7 @@ import {
   subscribeOn,
   tap,
   timer
-} from "./chunk-VROQHDY4.js";
+} from "./chunk-BRMZEL53.js";
 
 // node_modules/@firebase/util/dist/index.esm2017.js
 var CONSTANTS = {
@@ -3165,4 +3167,4 @@ firebase/app/dist/esm/index.esm.js:
    * limitations under the License.
    *)
 */
-//# sourceMappingURL=chunk-I3XYOW5X.js.map
+//# sourceMappingURL=chunk-ETJB6ZR2.js.map

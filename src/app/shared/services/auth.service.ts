@@ -1,18 +1,24 @@
 // auth.service.ts
 
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, UserCredential, onAuthStateChanged } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, UserCredential, onAuthStateChanged, User } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  UserData: any;
+  //New Way for OnStateChange to store user
+  private authStateSubject = new BehaviorSubject<User | null>(null);
+  public authState = this.authStateSubject.asObservable();
+
+  //UserData: any; - For old way
 
   constructor(public auth: Auth, public router: Router) {
 
+        /* OLD WAY
           //To check if user is logged in or not
           onAuthStateChanged(this.auth, (user: any) => {
            if (user) {
@@ -28,7 +34,17 @@ export class AuthService {
             console.error('Auth Local Storage Fix');
           }
 
-  });
+  });*/
+
+      // New Way
+        onAuthStateChanged(this.auth, (user) => {
+          this.authStateSubject.next(user);
+          if (user) {
+            sessionStorage.setItem('user', JSON.stringify(user));
+          } else {
+            sessionStorage.removeItem('user');
+          }
+        });
 }
 
   signUpWithEmail(email: string, password: string): Promise<UserCredential> {
