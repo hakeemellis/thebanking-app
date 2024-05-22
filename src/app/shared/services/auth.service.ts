@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, UserCredential, onAuthStateChanged, User } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { Firestore, doc, setDoc } from '@angular/fire/firestore';
+import { Firestore, doc, setDoc, getDoc } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -49,11 +49,13 @@ export class AuthService {
 }
 
   async signUpWithEmail(email: string, password: string, fname: string, lname: string): Promise<UserCredential> {
+    alert('Thanks for signing up. You will now be navigated to your dashboard')
     return createUserWithEmailAndPassword(
       this.auth,
       email.trim(),
       password.trim()
-    ).then(async (userCredential) => {
+    )
+    .then(async (userCredential) => {
       sessionStorage.setItem('user', JSON.stringify(userCredential.user));
       // Store additional user details in Firestore
       const userRef = doc(this.firestore, `users/${userCredential.user.uid}`);
@@ -80,6 +82,7 @@ export class AuthService {
   */
 
   login(email: string, password: string): Promise<UserCredential> {
+    alert('Welcome!')
     return signInWithEmailAndPassword(
         this.auth,
         email.trim(),
@@ -96,4 +99,12 @@ export class AuthService {
       console.error('Error signing out:', error.message);
     }
   }
+
+    // New method to fetch user details from Firestore
+    async getUserDetails(uid: string): Promise<any> {
+      const userRef = doc(this.firestore, `users/${uid}`);
+      const userDoc = await getDoc(userRef);
+      return userDoc.exists() ? userDoc.data() : null;
+    }
+    
 }
