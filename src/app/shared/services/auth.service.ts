@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, UserCredential, onAuthStateChanged, User } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { Firestore, doc, setDoc } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class AuthService {
 
   //UserData: any; - For old way
 
-  constructor(public auth: Auth, public router: Router) {
+  constructor(public auth: Auth, public router: Router, public firestore: Firestore) {
 
         /* OLD WAY
           //To check if user is logged in or not
@@ -47,13 +48,36 @@ export class AuthService {
         });
 }
 
-  signUpWithEmail(email: string, password: string): Promise<UserCredential> {
+  async signUpWithEmail(email: string, password: string, fname: string, lname: string): Promise<UserCredential> {
+    return createUserWithEmailAndPassword(
+      this.auth,
+      email.trim(),
+      password.trim()
+    ).then(async (userCredential) => {
+      sessionStorage.setItem('user', JSON.stringify(userCredential.user));
+      // Store additional user details in Firestore
+      const userRef = doc(this.firestore, `users/${userCredential.user.uid}`);
+      await setDoc(userRef, {
+        email: userCredential.user.email,
+        firstName: fname,
+        lastName: lname,  
+        createdAt: new Date(),
+      });
+      return userCredential;
+    });
+  }
+
+  /* 
+  Old Sign Up with Email Way
+
+    signUpWithEmail(email: string, password: string): Promise<UserCredential> {
     return createUserWithEmailAndPassword(
       this.auth,
       email.trim(),
       password.trim()
     );
   }
+  */
 
   login(email: string, password: string): Promise<UserCredential> {
     return signInWithEmailAndPassword(

@@ -1,13 +1,20 @@
 import {
-  Component,
-  ErrorFactory,
   FirebaseApp,
   FirebaseApps,
+  VERSION,
+  ɵAngularFireSchedulers,
+  ɵAppCheckInstances,
+  ɵgetAllInstancesOf,
+  ɵgetDefaultInstanceOf,
+  ɵzoneWrap
+} from "./chunk-TPDQ5RFU.js";
+import {
+  Component,
+  ErrorFactory,
   FirebaseError,
   LogLevel,
   Logger,
   SDK_VERSION,
-  VERSION,
   _getProvider,
   _isFirebaseServerApp,
   _registerComponent,
@@ -27,13 +34,8 @@ import {
   isReactNative,
   querystring,
   querystringDecode,
-  registerVersion,
-  ɵAngularFireSchedulers,
-  ɵAppCheckInstances,
-  ɵgetAllInstancesOf,
-  ɵgetDefaultInstanceOf,
-  ɵzoneWrap
-} from "./chunk-ETJB6ZR2.js";
+  registerVersion
+} from "./chunk-4QO5HM7M.js";
 import {
   InjectionToken,
   Injector,
@@ -44,19 +46,21 @@ import {
   setClassMetadata,
   ɵɵdefineInjector,
   ɵɵdefineNgModule
-} from "./chunk-CZDXZFY2.js";
+} from "./chunk-4TDP6L7W.js";
 import {
   Observable,
-  __async,
   __rest,
-  __superGet,
   concatMap,
   distinct,
   from,
   of,
   switchMap,
   timer
-} from "./chunk-BRMZEL53.js";
+} from "./chunk-UFRF26CS.js";
+import {
+  __async,
+  __superGet
+} from "./chunk-LJ4VCL4A.js";
 
 // node_modules/@firebase/auth/dist/esm2017/index-d0d29856.js
 var FactorId = {
@@ -8533,4 +8537,4 @@ rxfire/auth/index.esm.js:
    * limitations under the License.
    *)
 */
-//# sourceMappingURL=chunk-WAS6CR5X.js.map
+//# sourceMappingURL=chunk-54FWGVCQ.js.map

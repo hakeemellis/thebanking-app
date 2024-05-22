@@ -13,15 +13,15 @@ import { AuthService } from '../../shared/services/auth.service';
 export class SignupComponent {
   constructor(public authService: AuthService, private router: Router) {}
 
-  signUp(event: Event, email: string, password: string, confirmPassword: string) {
+  signUp(event: Event, email: string, fname: string, lname: string, password: string, confirmPassword: string) {
     event.preventDefault();  // Prevent default form submission
-    console.log('Form submitted:', email, password, confirmPassword); // Debugging line
+    console.log('Form submitted:', email, fname, lname, password, confirmPassword); // Debugging line
     if (password !== confirmPassword) {
       alert('Passwords do not match!');
       return;
     }
 
-    this.authService.signUpWithEmail(email, password)
+    this.authService.signUpWithEmail(email, password, fname, lname)
       .then(() => {
         this.router.navigate(['/dashboard']);
       })

@@ -26,7 +26,7 @@ export const authGuard: CanActivateFn = (route, state) => {
         console.log('Works Though')
         router.navigate([previousUrl || '/login']);
           //router.navigate(['/login']);
-      }, 3000); // Redirect to login after 3 seconds
+      }, 2500); // Redirect to login after 3 seconds
       return false;
   }
 

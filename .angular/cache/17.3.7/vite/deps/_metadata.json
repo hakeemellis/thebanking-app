@@ -1,91 +1,106 @@
 {
-  "hash": "bfb9dffa",
-  "configHash": "b5250e16",
+  "hash": "8b7b6ef6",
+  "configHash": "45b6a77b",
   "lockfileHash": "4c1bf132",
-  "browserHash": "15cdab71",
+  "browserHash": "5b21ca37",
   "optimized": {
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "850ba11b",
+      "fileHash": "42b47aad",
       "needsInterop": false
     },
     "@angular/fire/app": {
       "src": "../../../../../node_modules/@angular/fire/fesm2022/angular-fire-app.mjs",
       "file": "@angular_fire_app.js",
-      "fileHash": "4e620998",
+      "fileHash": "566a3f17",
       "needsInterop": false
     },
     "@angular/fire/auth": {
       "src": "../../../../../node_modules/@angular/fire/fesm2022/angular-fire-auth.mjs",
       "file": "@angular_fire_auth.js",
-      "fileHash": "3169284b",
+      "fileHash": "0784acde",
       "needsInterop": false
     },
     "@angular/fire/database": {
       "src": "../../../../../node_modules/@angular/fire/fesm2022/angular-fire-database.mjs",
       "file": "@angular_fire_database.js",
-      "fileHash": "c544d7ba",
+      "fileHash": "ac9e45e7",
       "needsInterop": false
     },
     "@angular/fire/firestore": {
       "src": "../../../../../node_modules/@angular/fire/fesm2022/angular-fire-firestore.mjs",
       "file": "@angular_fire_firestore.js",
-      "fileHash": "667e3f74",
+      "fileHash": "5c393060",
       "needsInterop": false
     },
     "@angular/fire/storage": {
       "src": "../../../../../node_modules/@angular/fire/fesm2022/angular-fire-storage.mjs",
       "file": "@angular_fire_storage.js",
-      "fileHash": "4b42b33b",
+      "fileHash": "1ea4cffc",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "05d7a880",
+      "fileHash": "caec15ab",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "6626ed65",
+      "fileHash": "61d5e531",
       "needsInterop": false
     },
     "rxjs/operators": {
       "src": "../../../../../node_modules/rxjs/dist/esm5/operators/index.js",
       "file": "rxjs_operators.js",
-      "fileHash": "b871dde7",
+      "fileHash": "5c69369a",
       "needsInterop": false
     },
     "rxjs": {
       "src": "../../../../../node_modules/rxjs/dist/esm5/index.js",
       "file": "rxjs.js",
-      "fileHash": "f020f48a",
+      "fileHash": "a1ff2c92",
+      "needsInterop": false
+    },
+    "firebase/firestore": {
+      "src": "../../../../../node_modules/firebase/firestore/dist/esm/index.esm.js",
+      "file": "firebase_firestore.js",
+      "fileHash": "c86d3556",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-5RGZMMMS": {
-      "file": "chunk-5RGZMMMS.js"
+    "chunk-43MOHNXU": {
+      "file": "chunk-43MOHNXU.js"
     },
-    "chunk-WAS6CR5X": {
-      "file": "chunk-WAS6CR5X.js"
+    "chunk-54FWGVCQ": {
+      "file": "chunk-54FWGVCQ.js"
     },
-    "chunk-ETJB6ZR2": {
-      "file": "chunk-ETJB6ZR2.js"
+    "chunk-TPDQ5RFU": {
+      "file": "chunk-TPDQ5RFU.js"
     },
-    "chunk-CZDXZFY2": {
-      "file": "chunk-CZDXZFY2.js"
+    "chunk-4QO5HM7M": {
+      "file": "chunk-4QO5HM7M.js"
     },
-    "chunk-TVMHX5DA": {
-      "file": "chunk-TVMHX5DA.js"
+    "chunk-ITZSRZCD": {
+      "file": "chunk-ITZSRZCD.js"
     },
-    "chunk-3J3ZFXGS": {
-      "file": "chunk-3J3ZFXGS.js"
+    "chunk-4TDP6L7W": {
+      "file": "chunk-4TDP6L7W.js"
     },
-    "chunk-BRMZEL53": {
-      "file": "chunk-BRMZEL53.js"
+    "chunk-AHCYN2QL": {
+      "file": "chunk-AHCYN2QL.js"
+    },
+    "chunk-663X6QEZ": {
+      "file": "chunk-663X6QEZ.js"
+    },
+    "chunk-UFRF26CS": {
+      "file": "chunk-UFRF26CS.js"
+    },
+    "chunk-LJ4VCL4A": {
+      "file": "chunk-LJ4VCL4A.js"
     }
   }
 }
