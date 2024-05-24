@@ -13,17 +13,34 @@ import { AuthService } from '../../shared/services/auth.service';
 })
 export class LoginComponent {
 
+  private hasRefreshed = false;
+
   constructor(public router: Router, public authService: AuthService) {}
-
-
 
   signIn(event: Event, email: string, password: string) {
     event.preventDefault();  // Prevent default form submission
 
     this.authService.login(email, password)
       .then(() => {
+        alert('Thanks for logging in')
         this.router.navigate(['/dashboard']);
+
+        // Refresh the window only if it hasn't been refreshed already
+        if (!this.hasRefreshed) {
+          setTimeout(() => {
+            window.location.reload();
+            this.hasRefreshed = true;
+            console.log(this.hasRefreshed) // Set the flag to true after refreshing
+          }, 10);
+        }
       })
+
+        // Refresh the window after 1 second
+        //setTimeout(() => {
+          //window.location.reload();
+        //}, 1000);
+        
+      //})
       .catch(error => {
         console.error('Error signing in:', error.message);
         alert('Sign in failed. Please try again.');

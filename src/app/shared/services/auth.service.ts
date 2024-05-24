@@ -11,6 +11,8 @@ import { Firestore, doc, setDoc, getDoc } from '@angular/fire/firestore';
 })
 export class AuthService {
 
+  private hasRefreshed = false;
+
   //New Way for OnStateChange to store user
   private authStateSubject = new BehaviorSubject<User | null>(null);
   public authState = this.authStateSubject.asObservable();
@@ -95,6 +97,10 @@ export class AuthService {
       await signOut(this.auth);
       this.router.navigate(['/login']);
       console.log('User signed out');
+
+      // Reset hasRefreshed to false when signing out
+      this.hasRefreshed = false;
+
     } catch (error: any) {
       console.error('Error signing out:', error.message);
     }
