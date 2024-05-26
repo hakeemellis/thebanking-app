@@ -31,7 +31,7 @@ export class LoginComponent {
             window.location.reload();
             this.hasRefreshed = true;
             console.log(this.hasRefreshed) // Set the flag to true after refreshing
-          }, 10);
+          }, 1);
         }
       })
 

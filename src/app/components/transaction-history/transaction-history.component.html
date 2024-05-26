@@ -5,9 +5,9 @@
 <div class="text-gray-600 dark:text-gray-300"
 *ngIf="transactionHistory$ | async as transactions">
   <div *ngFor="let transaction of transactions">
-    <p>Date: {{ transaction.timestamp | date:'short' }}</p>
+    <p class="text-md font-semibold">Date: {{ transaction.timestamp | date:'short' }}</p>
     <p>Type: {{ transaction.type }}</p>
-    <p>Amount: {{ transaction.amount | currency }}</p>
+    <p class="font-bold">Amount: {{ transaction.amount | currency }}</p>
     <hr>
   </div>
 </div>

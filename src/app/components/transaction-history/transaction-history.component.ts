@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import { Database, ref, onValue } from '@angular/fire/database';
+// transaction-history.component.ts
+
+import { Component, Input, OnInit } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { Database, ref, onValue } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 
@@ -11,16 +13,19 @@ import { CommonModule } from '@angular/common';
   templateUrl: './transaction-history.component.html',
   styleUrls: ['./transaction-history.component.scss']
 })
-export class TransactionHistoryComponent {
-  transactionHistory$: Observable<any[]>;
+export class TransactionHistoryComponent implements OnInit {
+  @Input() type: 'chequing' | 'savings' = 'chequing';
+  transactionHistory$!: Observable<any[]>;
 
-  constructor(private db: Database) {
+  constructor(private db: Database) {}
+
+  ngOnInit(): void {
     const userFromStorage = sessionStorage.getItem('user');
     if (userFromStorage && userFromStorage !== 'null') {
       const user = JSON.parse(userFromStorage);
       const uid = user?.uid;
       if (uid) {
-        const transactionHistoryRef = ref(this.db, `users/${uid}/chequing/transactions`);
+        const transactionHistoryRef = ref(this.db, `users/${uid}/${this.type}/transactions`);
         this.transactionHistory$ = new Observable(observer => {
           onValue(transactionHistoryRef, snapshot => {
             const value = snapshot.val();
@@ -47,4 +52,3 @@ export class TransactionHistoryComponent {
     }
   }
 }
-

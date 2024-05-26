@@ -7,11 +7,11 @@ import { map, catchError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ChequingService {
+export class SavingsService {
 
   private balanceRef: any;
   private transactionHistoryRef: any;
-  chequingbalance$: Observable<number | null>;
+  savingsbalance$: Observable<number | null>;
 
   constructor(private db: Database, private auth: Auth) {
     const userFromStorage = sessionStorage.getItem('user');
@@ -19,9 +19,9 @@ export class ChequingService {
       const user = JSON.parse(userFromStorage);
       const uid = user?.uid;
       if (uid) {
-        this.balanceRef = ref(this.db, `users/${uid}/chequing/balance`);
-        this.transactionHistoryRef = ref(this.db, `users/${uid}/chequing/transactions`);
-        this.chequingbalance$ = objectVal<number | null>(this.balanceRef).pipe(
+        this.balanceRef = ref(this.db, `users/${uid}/savings/balance`);
+        this.transactionHistoryRef = ref(this.db, `users/${uid}/savings/transactions`);
+        this.savingsbalance$ = objectVal<number | null>(this.balanceRef).pipe(
           map(balance => balance ?? 0), // If balance is null or undefined, return 0
           catchError(error => {
             console.error('Error retrieving balance:', error);
@@ -30,24 +30,24 @@ export class ChequingService {
         );
       } else {
         console.error("User UID not found.");
-        this.chequingbalance$ = new Observable(observer => {
+        this.savingsbalance$ = new Observable(observer => {
           observer.next(null);
         });
       }
     } else {
       console.error("User is not authenticated.");
-      this.chequingbalance$ = new Observable(observer => {
+      this.savingsbalance$ = new Observable(observer => {
         observer.next(null);
       });
     }
   }
 
   getBalance(): Observable<number | null> {
-    return this.chequingbalance$;
+    return this.savingsbalance$;
   }
 
   async deposit(amount: number): Promise<void> {
-    this.chequingbalance$.pipe(take(1)).subscribe(async balance => {
+    this.savingsbalance$.pipe(take(1)).subscribe(async balance => {
       const updatedBalance = (balance ?? 0) + amount;
       await set(this.balanceRef, updatedBalance);
       await this.logTransaction('deposit', amount);
@@ -55,7 +55,7 @@ export class ChequingService {
   }
 
   async withdraw(amount: number): Promise<void> {
-    this.chequingbalance$.pipe(take(1)).subscribe(async balance => {
+    this.savingsbalance$.pipe(take(1)).subscribe(async balance => {
       const updatedBalance = (balance ?? 0) - amount;
       if (updatedBalance >= 0) {
         await set(this.balanceRef, updatedBalance);

@@ -19,14 +19,14 @@ import { FormsModule } from '@angular/forms'; //allows the use of NgModel in htm
 })
 export class ChequingComponent implements OnInit {
 
-  balance$: Observable<number | null>;
+  chequingbalance$: Observable<number | null>;
   //amount: number = 0;
 
   depositAmount: number = 0;
   withdrawAmount: number = 0;
   
   constructor(public chequingService: ChequingService) { 
-    this.balance$ = this.chequingService.getBalance();
+    this.chequingbalance$ = this.chequingService.getBalance();
   }
 
   ngOnInit(): void {}

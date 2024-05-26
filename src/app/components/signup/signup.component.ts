@@ -11,6 +11,9 @@ import { AuthService } from '../../shared/services/auth.service';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent {
+
+  private hasRefreshed = false;
+  
   constructor(public authService: AuthService, private router: Router) {}
 
   signUp(event: Event, email: string, fname: string, lname: string, password: string, confirmPassword: string) {
@@ -24,6 +27,15 @@ export class SignupComponent {
     this.authService.signUpWithEmail(email, password, fname, lname)
       .then(() => {
         this.router.navigate(['/dashboard']);
+
+        // Refresh the window only if it hasn't been refreshed already
+        if (!this.hasRefreshed) {
+          setTimeout(() => {
+            window.location.reload();
+            this.hasRefreshed = true;
+            console.log(this.hasRefreshed) // Set the flag to true after refreshing
+          }, 1);
+        }
       })
       .catch(error => {
         console.error('Error signing up:', error.message);
