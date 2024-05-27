@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { Router, RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 //import { FirebaseAuthService } from '../../services/firebase.service';
 import { AuthService } from '../../shared/services/auth.service';
+import { NavbarGeneralComponent } from '../navbar-general/navbar-general.component';
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive,],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, NavbarGeneralComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })

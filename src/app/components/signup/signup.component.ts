@@ -3,10 +3,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
+import { NavbarGeneralComponent } from '../navbar-general/navbar-general.component';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
+  imports: [NavbarGeneralComponent],
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
